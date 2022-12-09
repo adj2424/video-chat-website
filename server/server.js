@@ -41,7 +41,6 @@ const io = new Server(server, {
 //listening to connection
 io.on('connection', socket => {
   console.log(`Connected: ${socket.id}`);
-
   //join room based on id
   socket.on('joinRoom', async roomId => {
     try {

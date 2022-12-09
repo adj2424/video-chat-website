@@ -2,10 +2,7 @@ import * as React from 'react';
 import { useState } from 'react';
 import { styled } from '@mui/material/styles';
 import Box from '@mui/material/Box';
-import Grid from '@mui/material/Grid';
-import Paper from '@mui/material/Paper';
 import Typography from '@mui/material/Typography';
-import ButtonBase from '@mui/material/ButtonBase';
 import Stack from '@mui/material/Stack';
 import Button from '@mui/material/Button';
 import Card from '@mui/material/Card';
@@ -13,7 +10,6 @@ import CardActions from '@mui/material/CardActions';
 import CardContent from '@mui/material/CardContent';
 import { useNavigate } from 'react-router-dom';
 import PropTypes from 'prop-types';
-//import '../css/pages/CardOptions'
 
 const Img = styled('img')({
   margin: 'auto',
