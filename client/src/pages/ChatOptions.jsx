@@ -1,6 +1,4 @@
 import * as React from 'react';
-import { useState } from 'react';
-import { styled } from '@mui/material/styles';
 import Box from '@mui/material/Box';
 import Typography from '@mui/material/Typography';
 import Stack from '@mui/material/Stack';
@@ -11,46 +9,36 @@ import CardContent from '@mui/material/CardContent';
 import { useNavigate } from 'react-router-dom';
 import PropTypes from 'prop-types';
 
-const Img = styled('img')({
-  margin: 'auto',
-  display: 'block',
-  maxWidth: '100%',
-  maxHeight: '100%'
-});
-
 const ComplexGrid = props => {
-  const [userName, setUsername] = useState('');
-  const [roomId, setRoomId] = useState('');
   const socket = props.socket;
 
   let rtcToken = '';
   const joinRoom = async () => {
-    setRoomId('public');
+    const roomId = 'public';
     let currentDate = new Date();
-    setUsername('user' + currentDate.getHours() + currentDate.getMinutes() + currentDate.getSeconds());
-    if (userName !== '' && roomId !== '') {
-      let url = `http://localhost:3001/rtc/${roomId}/audience/uid/${userName}`;
-      await fetch(url, { method: 'GET' })
-        .then(response => response.json())
-        .then(data => {
-          rtcToken = data.rtcToken;
-          console.log('Token12: ' + rtcToken);
-        });
-      url = `http://localhost:3001/room/${roomId}`;
-      await fetch(url, { method: 'GET' })
-        .then(response => response.json())
-        .then(() => {
-          // room exists so join room
-          console.log(`joined room userName: ${userName}, roomId: ${roomId}`);
-          join(rtcToken);
-        });
-    }
+    const userName = 'user' + currentDate.getHours() + currentDate.getMinutes() + currentDate.getSeconds();
+    let url = `http://localhost:3001/rtc/${roomId}/audience/uid/${userName}`;
+    await fetch(url, { method: 'GET' })
+      .then(response => response.json())
+      .then(data => {
+        rtcToken = data.rtcToken;
+        console.log('Token12: ' + rtcToken);
+      });
+    url = `http://localhost:3001/room/${roomId}`;
+    await fetch(url, { method: 'GET' })
+      .then(response => response.json())
+      .then(() => {
+        // room exists so join room
+        console.log(`joined room userName: ${userName}, roomId: ${roomId}`);
+        join(rtcToken, roomId, userName);
+      });
   };
 
-  const join = async rtcToken => {
+  const join = async (rtcToken, roomId, userName) => {
     await socket.emit('joinRoom', roomId);
     await navigate('/room/' + roomId, { state: { rtcToken: rtcToken, userName: userName } });
   };
+
   ComplexGrid.propTypes = {
     socket: PropTypes.object
   };

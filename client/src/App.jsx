@@ -19,15 +19,15 @@ function App() {
 
   return (
     <div className="App">
-      <Header/>
+      <Header />
       <Box sx={{ display: 'flex' }}>
-         <Box component="main" sx={{ flexGrow: 1 }}>
+        <Box component="main" sx={{ flexGrow: 1 }}>
           <Routes>
             <Route exact path="/" element={<Home socket={socket} />} />
             <Route exact path="/createRoom" element={<CreateRoom socket={socket} />} />
             <Route exact path="/joinRoom" element={<JoinRoom socket={socket} />} />
             <Route exact path="/about" element={<About />} />
-            <Route exact path="/chatOptions" element={<ComplexGrid socket={socket}/>} />
+            <Route exact path="/chatOptions" element={<ComplexGrid socket={socket} />} />
             <Route exact path="/contact" element={<ContactForm />} />
             <Route exact path="/room/:id" element={<Room socket={socket} userName={'temp'} />} />
             <Route exact path="/*" element={<NoPage />} />
