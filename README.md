@@ -23,7 +23,7 @@ What POWOW Allows You To Do:
 
 - Allowing users to privately create their own Chat Rooms via a specific key that they are able to use.
 - Opening the public chat and talking to whoever is on the channel.
-- Implementing a more robust but yet, simplier UI for users to read and understand a lot easier than competitive applications.
+- Implementing a more robust and more intuitive UI for users to read and understand a lot easier than competitive applications.
 
 <!-- GETTING STARTED -->
 
