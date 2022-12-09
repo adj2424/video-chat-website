@@ -1,16 +1,12 @@
 <a name="readme-top"></a>
 
 <!-- PROJECT LOGO -->
-<br />
 <div align="center">
-
   <h3 align="center">POWOW - Reinventing Chatting</h3>
-
   <p align="center">
     Explore, meet, and discover new friends across the web with POWOW!
     <br />
-    <a href="https://github.com/huangwai/powow_application"><strong>Explore the github document »</strong></a>
-    <br />
+    <a href="https://github.com/adj2424/video-chat-website"><strong>Explore the github document »</strong></a>
     <br />
   </p>
 </div>
@@ -29,10 +25,6 @@ What POWOW Allows You To Do:
 - Opening the public chat and talking to whoever is on the channel.
 - Implementing a more robust but yet, simplier UI for users to read and understand a lot easier than competitive applications.
 
-Given this, we are proud to create POWOW for the public and hope to increase communication across the internet.
-
-<p align="right">(<a href="#readme-top">back to top</a>)</p>
-
 <!-- GETTING STARTED -->
 
 ## Getting Started
@@ -42,18 +34,24 @@ To get a local copy up and running follow these simple example steps.
 
 ### Installation
 
-_Below is an example of how you can instruct your audience on installing and setting up your app. This template doesn't rely on any external dependencies or services._
-
-2. Clone the repo
+1. Clone the repo
    ```sh
-   git clone https://github.com/huangwai/powow_application.git
+   git clone https://github.com/adj2424/video-chat-website.git
    ```
-3. Install NPM packages
+2. Change directory to client in terminal one
    ```sh
-   npm install
+   cd client
    ```
-4. run npm on both server & client side
-   ```js
+3. Change directory to server in terminal two
+   ```sh
+   cd server
+   ```
+4. Install NPM packages on both terminals
+   ```sh
+   npm i
+   ```
+5. Start the application on both terminals
+   ```sh
    npm run dev
    ```
    <p align="right">(<a href="#readme-top">back to top</a>)</p>
