@@ -1,21 +1,31 @@
-## Welcome to POWOW Application
+<a name="readme-top"></a>
 
-### Video Chatting made for those who want to connect across the world.
+<!-- PROJECT LOGO -->
+<div align="center">
+  <h3 align="center">POWOW - Reinventing Chatting</h3>
+  <p align="center">
+    Built with Next.js 13 Beta, MongoDB, Socket.IO, and Material UI 
+    <br />
+    <a href="https://github.com/adj2424/video-chat-website"><strong>Explore the github document »</strong></a>
+    <br />
+  </p>
+</div>
 
-#### Made in React.js, using Next.js, while incorperating Material UI.
+<!-- ABOUT THE PROJECT -->
 
-### Small Description
+## About The Project
 
-For our Capstone Project, we decided to go off the preexisting Web Chatting Application, called Omegle, and expand more to allow for user bonding and authenication. In POWOW, our webchat application, we decided to elaborate more on Omegle for our project.
+<!-- [![Product Name Screen Shot][product-screenshot]](https://example.com) -->
 
-### Features in POWOW
+There are chatting applications on the web, but what makes POWOW special is giving users the ability to do more. POWOW will give users the edge in communication and allow them to discover new peers across the internet.
 
-1. Create your own video rooms to conversate with others.
-2. Join preexisting rooms with Room ID's.
-3. Each videoroom includes a chat that is only accessible while in the video room.
-4. Minimal design choice to allow for easy readiblitiy.
-5. Utilized Agora to offer automated token generation for video streaming authentication.
-6. More than 2 users are able to join a video room & chat through audio or text.
+Features in POWOW:
+
+- Server side rendering with hydration.
+- Allowing users to privately create their own Rooms via a specific key for chatting and video streaming.
+- Join pre-existing rooms with Room ID's.
+- Minimal design choice to allow for easy readability.
+- API endpoints for data manipulation with MongoDB and Agora.
 
 This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
 
@@ -31,6 +41,8 @@ yarn dev
 pnpm dev
 ```
 
+Replace .env.local.template with .env.local and add the credentials.
+
 Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 
 You can start editing the page by modifying `pages/index.js`. The page auto-updates as you edit the file.
@@ -38,8 +50,6 @@ You can start editing the page by modifying `pages/index.js`. The page auto-upda
 [API routes](https://nextjs.org/docs/api-routes/introduction) can be accessed on [http://localhost:3000/api/hello](http://localhost:3000/api/hello). This endpoint can be edited in `pages/api/hello.js`.
 
 The `pages/api` directory is mapped to `/api/*`. Files in this directory are treated as [API routes](https://nextjs.org/docs/api-routes/introduction) instead of React pages.
-
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
 
 ## Learn More
 
