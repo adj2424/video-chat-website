@@ -17,7 +17,7 @@
 
 <!-- [![Product Name Screen Shot][product-screenshot]](https://example.com) -->
 
-There are chatting applications on the web, but what makes POWOW special is giving users the ability to do more. POWOW will give users the edge in communication and allow them to discover new peers across the internet. Alternative version built with MERN stack can be found in deprecated folder located [here](https://github.com/adj2424/video-chat-website).
+There are chatting applications on the web, but what makes POWOW special is giving users the ability to do more. POWOW will give users the edge in communication and allow them to discover new peers across the internet. Alternative version built with MERN stack can be found in deprecated folder located [here](https://github.com/adj2424/video-chat-website/tree/main/deprecated).
 
 Features in POWOW:
 
