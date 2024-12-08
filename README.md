@@ -1,15 +1,8 @@
-<a name="readme-top"></a>
+# POWOW - Reinventing Chatting
 
-<!-- PROJECT LOGO -->
-<div align="center">
-  <h3 align="center">POWOW - Reinventing Chatting</h3>
-  <p align="center">
-    Built with MongoDB, Express.js, React.js, Node.js, Socket.IO, and Material UI
-    <br />
-    <a href="https://github.com/adj2424/video-chat-website"><strong>Explore the github document »</strong></a>
-    <br />
-  </p>
-</div>
+Built with MongoDB, Express.js, React.js, Node.js, Socket.IO, and Material UI
+
+[**Explore the github document »**](https://github.com/adj2424/video-chat-website)
 
 <!-- ABOUT THE PROJECT -->
 
