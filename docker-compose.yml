@@ -1,0 +1,24 @@
+services:
+  client:
+    build:
+      context: ./client
+      dockerfile: dockerfile
+    container_name: powow-client
+    ports:
+      - '8080:3000'
+    networks:
+      - powow
+  server:
+    build:
+      context: ./server
+      dockerfile: dockerfile
+    container_name: powow-server
+    ports:
+      - '8081:3001'
+    env_file:
+      - ./server/.env
+    networks:
+      - powow
+networks:
+  powow:
+    driver: bridge

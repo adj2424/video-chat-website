@@ -81,7 +81,7 @@ const JoinRoom = props => {
 
   const join = async rtcToken => {
     await socket.emit('joinRoom', roomId);
-    await navigate('/room/' + roomId, { state: { rtcToken: rtcToken, userName: userName } });
+    navigate('/room/' + roomId, { state: { rtcToken: rtcToken, userName: userName } });
   };
 
   JoinRoom.propTypes = {
