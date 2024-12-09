@@ -16,6 +16,7 @@ import TextField from '@mui/material/TextField';
 import * as React from 'react';
 import ScrollToBottom from 'react-scroll-to-bottom';
 import '../css/pages/JoinRoom.css';
+import { getAllRooms, getRoomById } from '../service';
 
 /*
 Join Room page component
@@ -44,31 +45,20 @@ const JoinRoom = props => {
           rtcToken = data.rtcToken;
           console.log('Token12: ' + rtcToken);
         });
-      url = `http://localhost:3001/room/${roomId}`;
-      await fetch(url, { method: 'GET' })
-        .then(response => response.json())
-        .then(() => {
-          // room exists so join room
-          console.log(`joined room userName: ${userName}, roomId: ${roomId}`);
-          join(rtcToken);
-        })
-        // there was no room with the id so send error unable to join room
-        .catch(() => {
-          setError(true);
-          setErrorMessage('There was no room with the id');
-          console.log('cant there was no room with the id');
-        });
+      try {
+        await getRoomById(roomId);
+        // room exists so join room
+        join(rtcToken);
+      } catch (error) {
+        setError(true);
+        setErrorMessage(error.message);
+      }
     }
   };
 
   const showRooms = async () => {
-    const url = `http://localhost:3001/room/all`;
-    await fetch(url, { method: 'GET' })
-      .then(response => response.json())
-      // successfully joined room
-      .then(data => setRooms(data));
-    // redirect to error if room does not exist
-    //.catch(() => navigate('error'));
+    const data = await getAllRooms();
+    setRooms(data);
   };
   useEffect(() => {
     showRooms();

@@ -36,18 +36,18 @@ router.delete('/:id', async (req, res) => {
   }
 });
 
-router.post('/:id/disconnect', async (req, res) => {
-  try {
-    const room = await Room.findOne({ id: req.params.id });
-    if (room !== null) {
-      await Room.updateOne({ id: req.params.id }, { $set: { userCount: room.userCount - 1 } });
-      res.status(200).send('200');
-    } else {
-      res.status(500).json({ message: 'internal error' });
-    }
-  } catch (e) {
-    res.status(500).json({ message: e.message });
-  }
-});
+// router.post('/:id/disconnect', async (req, res) => {
+//   try {
+//     const room = await Room.findOne({ id: req.params.id });
+//     if (room !== null) {
+//       await Room.updateOne({ id: req.params.id }, { $set: { userCount: room.userCount - 1 } });
+//       res.status(200).send('200');
+//     } else {
+//       res.status(500).json({ message: 'internal error' });
+//     }
+//   } catch (e) {
+//     res.status(500).json({ message: e.message });
+//   }
+// });
 
 module.exports = router;

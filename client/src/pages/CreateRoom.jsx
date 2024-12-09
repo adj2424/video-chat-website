@@ -14,6 +14,7 @@ import CardContent from '@mui/material/CardContent';
 import Box from '@mui/material/Box';
 import Typography from '@mui/material/Typography';
 import TextField from '@mui/material/TextField';
+import { getRoomById } from '../service';
 
 // import Grid from '@mui/material/Grid';
 
@@ -38,19 +39,15 @@ const CreateRoom = props => {
           console.log('Token12: ' + token);
         });
 
-      url = `http://localhost:3001/room/${roomId}`;
-      await fetch(url, { method: 'GET' })
-        .then(response => response.json())
+      try {
         // there was room so send error unable to create room
-        .then(() => {
-          setError(true);
-          console.log('there was room so send error unable to create room');
-        })
+        await getRoomById(roomId);
+        setError(true);
+      } catch (error) {
         // there was no room with the id so create room
-        .catch(() => {
-          console.log(`created room userName: ${userName}, roomId: ${roomId}`);
-          createRoom(token);
-        });
+        console.log(`created room userName: ${userName}, roomId: ${roomId}`);
+        createRoom(token);
+      }
     }
   };
 
