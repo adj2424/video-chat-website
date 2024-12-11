@@ -5,9 +5,9 @@ services:
       dockerfile: dockerfile
     container_name: powow-client
     environment:
-      - VITE_DOCKER_URL=http://powow:3001
+      - VITE_DOCKER_URL=http://localhost:3001
     ports:
-      - '8080:3000'
+      - '3000:3000'
     networks:
       - powow
   server:
@@ -18,7 +18,7 @@ services:
     env_file:
       - ./server/.env
     ports:
-      - '8081:3001'
+      - '3001:3001'
     networks:
       - powow
 networks:

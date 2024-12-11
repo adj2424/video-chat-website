@@ -1,8 +1,9 @@
-const baseUrl = import.meta.env.VITE_DOCKER_URL || 'http://localhost:3001';
+let baseUrl = import.meta.env.VITE_DOCKER_URL || 'http://localhost:3001';
 
 export const getAllRooms = async () => {
   console.log('baseUrl', baseUrl, import.meta.env.VITE_DOCKER_URL);
   const url = `${baseUrl}/room/all`;
+  console.log('url', url);
   return await fetch(url, { method: 'GET' }).then(response => response.json());
 };
 

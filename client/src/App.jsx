@@ -15,7 +15,8 @@ import './App.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
 
 function App() {
-  const socket = io.connect('http://localhost:3001');
+  const baseUrl = import.meta.env.VITE_DOCKER_URL || 'http://localhost:3001';
+  const socket = io.connect(baseUrl);
 
   return (
     <div className="App">
