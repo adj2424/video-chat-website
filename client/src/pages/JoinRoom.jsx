@@ -16,7 +16,7 @@ import TextField from '@mui/material/TextField';
 import * as React from 'react';
 import ScrollToBottom from 'react-scroll-to-bottom';
 import '../css/pages/JoinRoom.css';
-import { getAllRooms, getRoomById } from '../service';
+import { getAllRooms, getRoomById, getRtcToken } from '../service';
 
 /*
 Join Room page component
@@ -38,14 +38,9 @@ const JoinRoom = props => {
     }
 
     if (userName !== '' && roomId !== '') {
-      let url = `http://localhost:3001/rtc/${roomId}/audience/uid/${userName}`;
-      await fetch(url, { method: 'GET' })
-        .then(response => response.json())
-        .then(data => {
-          rtcToken = data.rtcToken;
-          console.log('Token12: ' + rtcToken);
-        });
       try {
+        rtcToken = await getRtcToken(roomId, userName);
+        console.log('rtc token: ' + rtcToken);
         await getRoomById(roomId);
         // room exists so join room
         join(rtcToken);

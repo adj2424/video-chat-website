@@ -8,7 +8,7 @@ import CardActions from '@mui/material/CardActions';
 import CardContent from '@mui/material/CardContent';
 import { useNavigate } from 'react-router-dom';
 import PropTypes from 'prop-types';
-import { getRoomById } from '../service';
+import { getRoomById, getRtcToken } from '../service';
 
 const ComplexGrid = props => {
   const socket = props.socket;
@@ -18,15 +18,10 @@ const ComplexGrid = props => {
     const roomId = 'public';
     let currentDate = new Date();
     const userName = 'user' + currentDate.getHours() + currentDate.getMinutes() + currentDate.getSeconds();
-    let url = `http://localhost:3001/rtc/${roomId}/audience/uid/${userName}`;
-    await fetch(url, { method: 'GET' })
-      .then(response => response.json())
-      .then(data => {
-        rtcToken = data.rtcToken;
-        console.log('rtc token: ' + rtcToken);
-      });
-
     try {
+      rtcToken = await getRtcToken(roomId, userName);
+      console.log('rtc token: ' + rtcToken);
+      await getRoomById(roomId);
       await getRoomById(roomId);
       console.log(`joined room userName: ${userName}, roomId: ${roomId}`);
       join(rtcToken, roomId, userName);

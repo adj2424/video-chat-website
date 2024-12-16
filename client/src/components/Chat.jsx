@@ -9,7 +9,7 @@ import SendIcon from '@mui/icons-material/Send';
 import Box from '@mui/material/Box';
 import '../css/components/ChatRoom.css';
 import ScrollToBottom from 'react-scroll-to-bottom';
-import { getRoomById } from '../service';
+import { getRoomById, clearMessages } from '../service';
 
 export const ChatRoom = props => {
   const [message, setMessage] = useState('');
@@ -37,8 +37,7 @@ export const ChatRoom = props => {
   // remove previous messages in db and client
   const clearMessage = async () => {
     setAllMessages([]);
-    const url = `http://localhost:3001/room/${props.roomId}`;
-    await fetch(url, { method: 'DELETE' });
+    await clearMessages(props.roomId);
   };
   // fetch persistent messages from db
   const fetchMsg = async room => {

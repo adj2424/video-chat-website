@@ -14,7 +14,7 @@ import CardContent from '@mui/material/CardContent';
 import Box from '@mui/material/Box';
 import Typography from '@mui/material/Typography';
 import TextField from '@mui/material/TextField';
-import { getRoomById } from '../service';
+import { getRoomById, getRtcToken } from '../service';
 
 // import Grid from '@mui/material/Grid';
 
@@ -31,15 +31,10 @@ const CreateRoom = props => {
   const joinRoom = async () => {
     let token = '';
     if (userName !== '' && roomId !== '') {
-      let url = `http://localhost:3001/rtc/${roomId}/publisher/uid/${userName}`;
-      await fetch(url, { method: 'GET' })
-        .then(response => response.json())
-        .then(data => {
-          token = data.rtcToken;
-          console.log('Token12: ' + token);
-        });
-
       try {
+        token = await getRtcToken(roomId, userName);
+        console.log('rtc token: ' + token);
+        await getRoomById(roomId);
         // there was room so send error unable to create room
         await getRoomById(roomId);
         setError(true);

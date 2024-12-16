@@ -19,3 +19,19 @@ export const getRoomById = async id => {
     throw new Error('There was no room with the id');
   }
 };
+
+export const getRtcToken = async (roomId, userName) => {
+  const url = `${baseUrl}/rtc/${roomId}/audience/uid/${userName}`;
+  try {
+    const res = await fetch(url, { method: 'GET' });
+    const data = await res.json();
+    return data.rtcToken;
+  } catch (error) {
+    throw new Error('error getting rtc token');
+  }
+};
+
+export const clearMessages = async roomId => {
+  const url = `${baseUrl}/room/${roomId}`;
+  await fetch(url, { method: 'DELETE' });
+};
