@@ -1,4 +1,6 @@
-let baseUrl = import.meta.env.VITE_DOCKER_URL || 'http://localhost:3001';
+import { getBaseUrl } from './config.js';
+
+let baseUrl = getBaseUrl();
 
 export const getAllRooms = async () => {
   console.log('baseUrl', baseUrl, import.meta.env.VITE_DOCKER_URL);

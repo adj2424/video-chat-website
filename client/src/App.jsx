@@ -13,9 +13,10 @@ import ComplexGrid from './pages/ChatOptions';
 import Header from './components/Header';
 import './App.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
+import { getBaseUrl } from './config';
 
 function App() {
-  const baseUrl = import.meta.env.VITE_DOCKER_URL || 'http://localhost:3001';
+  const baseUrl = getBaseUrl();
   const socket = io.connect(baseUrl);
 
   return (
