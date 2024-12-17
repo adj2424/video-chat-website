@@ -41,6 +41,7 @@ const ComplexGrid = props => {
   const navigate = useNavigate();
 
   const test = async () => {
+    console.log('pinging...\n\n');
     const res = await ping();
     console.log(res);
   };
