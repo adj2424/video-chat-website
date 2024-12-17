@@ -19,6 +19,8 @@ Features in POWOW:
 - Minimal design choice to allow for easy readability.
 - API endpoints for data manipulation with MongoDB and Agora.
 
+![Alt text here](powow.drawio.svg)
+
 <!-- GETTING STARTED -->
 
 ## Getting Started
