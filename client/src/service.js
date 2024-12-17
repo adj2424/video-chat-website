@@ -2,10 +2,13 @@ import { getBaseUrl } from './config.js';
 
 let baseUrl = getBaseUrl();
 
+export const ping = async () => {
+  const url = `${baseUrl}/room`;
+  return await fetch(url, { method: 'GET' });
+};
+
 export const getAllRooms = async () => {
-  console.log('baseUrl', baseUrl, import.meta.env.VITE_DOCKER_URL);
   const url = `${baseUrl}/room/all`;
-  console.log('url', url);
   return await fetch(url, { method: 'GET' }).then(response => response.json());
 };
 

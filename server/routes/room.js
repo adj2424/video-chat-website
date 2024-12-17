@@ -4,7 +4,7 @@ const router = express.Router();
 const Room = require('../models/roomModel');
 
 router.get('/', (req, res) => {
-  res.send('hi');
+  res.status(200).send('hi');
 });
 
 //gets all rooms

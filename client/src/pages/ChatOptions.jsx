@@ -1,4 +1,5 @@
 import * as React from 'react';
+import { useEffect } from 'react';
 import Box from '@mui/material/Box';
 import Typography from '@mui/material/Typography';
 import Stack from '@mui/material/Stack';
@@ -8,7 +9,7 @@ import CardActions from '@mui/material/CardActions';
 import CardContent from '@mui/material/CardContent';
 import { useNavigate } from 'react-router-dom';
 import PropTypes from 'prop-types';
-import { getRoomById, getRtcToken } from '../service';
+import { getRoomById, getRtcToken, ping } from '../service';
 
 const ComplexGrid = props => {
   const socket = props.socket;
@@ -38,6 +39,16 @@ const ComplexGrid = props => {
     socket: PropTypes.object
   };
   const navigate = useNavigate();
+
+  const test = async () => {
+    const res = await ping();
+    console.log(res);
+  };
+
+  useEffect(() => {
+    test();
+  }, []);
+
   return (
     <Stack sx={{ m: 10 }} direction="row" spacing={10} justifyContent="center" alignItems="center" className="cards">
       <Card sx={{ bgcolor: '#232632', height: 400, width: 400 }}>
