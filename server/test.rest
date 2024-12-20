@@ -25,5 +25,3 @@ GET http://localhost:3001/room/all
 POST http://localhost:3001/room/1234/disconnect
 
 ###
-
-GET http://54.166.245.120:3001/room
