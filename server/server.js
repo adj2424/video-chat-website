@@ -18,6 +18,9 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 app.use('/room', roomRouter);
 app.use('/rtc', rtcRouter);
+app.get('/test', (req, res) => {
+  res.status(200).send('hi');
+});
 
 const server = http.createServer(app);
 
@@ -103,3 +106,4 @@ io.on('connection', socket => {
 server.listen(process.env.PORT, () => {
   console.log(`Server running on port ${process.env.PORT}`);
 });
+
